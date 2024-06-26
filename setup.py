@@ -201,13 +201,13 @@ def get_extensions():
         extra_compile_args = {'cxx': []}
 
         if platform.system() != 'Windows':
-            extra_compile_args['cxx'] = ['-std=c++14']
+            extra_compile_args['cxx'] = ['-std=c++17']
         else:
             # TODO: In Windows, C++17 is chosen to compile extensions in
             # PyTorch2.0 , but a compile error will be reported.
             # As a temporary solution, force the use of C++14.
             if parse_version(torch.__version__) >= parse_version('2.0.0'):
-                extra_compile_args['cxx'] = ['/std:c++14']
+                extra_compile_args['cxx'] = ['/std:c++17']
 
         include_dirs = []
         library_dirs = []
